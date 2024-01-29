@@ -3,7 +3,8 @@ package hust.util;
 import org.mindrot.jbcrypt.BCrypt;
 
 public class AuthService {
-	
+	//$2a$12$5udY7LFE.Nu23zvJ9xXTLuTPAaksqbmLoXP1tQsPQ9M.HYkE0fAn6
+	// abc12345
 	//public LoginController loginController;
 	//public LogoutController logoutController;
 	//public Admin_AddStaffForm adminAddStaffForm;

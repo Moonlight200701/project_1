@@ -268,9 +268,9 @@ public class AddStaffForm implements Initializable, LabelHelper, TextFieldHelper
 				SceneController.getInstance().adminStaffForm.refreshTable();
 			}
 		} catch (ClassNotFoundException cnfe) {
-			cnfe.printStackTrace();
+//			cnfe.printStackTrace();
 		} catch (SQLException sqle) {
-			sqle.printStackTrace();
+//			sqle.printStackTrace();
 			sceneRoute.toAlertWithTitleAndContent("Error when adding Staff", sqle.toString());
 		}
 	}

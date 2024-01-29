@@ -17,7 +17,7 @@ public class ParkingController {
 		return parking.getParkingNameDependOnSelectedCompany(companyName);
 	}
 	
-	public long getParkingID(String parkName) {
+	public String getParkingID(String parkName) {
 		Parking parking = new Parking();
 		return parking.getParkingIDFromParkingName(parkName);
 	}

@@ -14,7 +14,7 @@ import com.github.sarxos.webcam.WebcamResolution;
 
 import hust.common.Constants;
 import hust.common.Navigator;
-import hust.pms.controller.CameraController;
+//import hust.pms.controller.CameraController;
 import hust.pms.controller.CardController;
 import hust.pms.controller.CompanyController;
 import hust.pms.controller.ContractController;
@@ -230,8 +230,8 @@ public class StaffCenterForm implements Initializable, LabelHelper {
 		//onEnter();
 		initRadioButton();
 		
-		CameraController camc = new CameraController();
-		ObservableList<WebcamInfo> options = FXCollections.observableArrayList(camc.getWebcam());
+//		CameraController camc = new CameraController();
+//		ObservableList<WebcamInfo> options = FXCollections.observableArrayList(camc.getWebcam());
     	/*
 		int webcamCounter = 0;
     	for (Webcam webcam:Webcam.getWebcams()) {
@@ -243,7 +243,7 @@ public class StaffCenterForm implements Initializable, LabelHelper {
     	}
     	*/
 		
-    	cbCameraOptions1.setItems(options);
+//    	cbCameraOptions1.setItems(options);
     	cbCameraOptions1.setPromptText("Please choose camera1");
     	cbCameraOptions1.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<WebcamInfo>() {
 
@@ -284,7 +284,7 @@ public class StaffCenterForm implements Initializable, LabelHelper {
 				VehicleController vehController = new VehicleController();
 				ContractController contController = new ContractController();
 				HistoryController hisController = new HistoryController();
-				CameraController camController= new CameraController();
+//				CameraController camController= new CameraController();
 				CardController cardController = new CardController();
 				ParkingController parkController = new ParkingController();
 				
@@ -344,7 +344,7 @@ public class StaffCenterForm implements Initializable, LabelHelper {
 									currentCIDAndDateTime = currentCID + "_" + currentDateTime + ".jpg";
 									
 									//get image from webcam
-									camController.getImage(webcam);
+//									camController.getImage(webcam);
 									
 									//populate image which captured to image view
 									File file = new File(currentFullCIDAndDateTime);
@@ -409,7 +409,7 @@ public class StaffCenterForm implements Initializable, LabelHelper {
 		    						
 									currentFullCIDAndDateTime = "./img_history/" + currentCID + "_" + currentDateTime + ".jpg";
 									currentCIDAndDateTime = currentCID + "_" + currentDateTime + ".jpg";
-		    						camController.getImage(webcam);
+//		    						camController.getImage(webcam);
 									
 									//populate image which captured to image view
 									File newRecord = new File(currentFullCIDAndDateTime);
@@ -461,8 +461,8 @@ public class StaffCenterForm implements Initializable, LabelHelper {
 		    						// Time to capturing :)
 		    						currentDateTime = TimeHelper.getCurrentTimeToStr();
 									currentFullCIDAndDateTime = "./img_history/" + currentCID + "_" + currentDateTime + ".jpg";
-		    						camController.getImage(webcam);
-		    						
+//		    						camController.getImage(webcam);
+//		    						
 		    						//populate image which captured to image view
 									File newRecord = new File(currentFullCIDAndDateTime);
 									iv_img_out_lp.setImage(new Image(newRecord.toURI().toString()));
@@ -543,7 +543,7 @@ public class StaffCenterForm implements Initializable, LabelHelper {
 									currentCIDAndDateTime = currentCID + "_" + currentDateTime + ".jpg";
 									
 									//get image from webcam
-									camController.getImage(webcam);
+//									camController.getImage(webcam);
 									
 									//populate image which captured to image view
 									File file = new File(currentFullCIDAndDateTime);
@@ -608,7 +608,7 @@ public class StaffCenterForm implements Initializable, LabelHelper {
 		    						
 									currentFullCIDAndDateTime = "./img_history/" + currentCID + "_" + currentDateTime + ".jpg";
 									currentCIDAndDateTime = currentCID + "_" + currentDateTime + ".jpg";
-		    						camController.getImage(webcam);
+//		    						camController.getImage(webcam);
 									
 									//populate image which captured to image view
 									File newRecord = new File(currentFullCIDAndDateTime);
@@ -660,7 +660,7 @@ public class StaffCenterForm implements Initializable, LabelHelper {
 		    						// Time to capturing :)
 		    						currentDateTime = TimeHelper.getCurrentTimeToStr();
 									currentFullCIDAndDateTime = "./img_history/" + currentCID + "_" + currentDateTime + ".jpg";
-		    						camController.getImage(webcam);
+//		    						camController.getImage(webcam);
 		    						
 		    						//populate image which captured to image view
 									File newRecord = new File(currentFullCIDAndDateTime);

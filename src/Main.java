@@ -34,10 +34,10 @@ public class Main {
 //    	return validate;
 //    }
 	
-	public static void main(String args[]) throws IOException {
-		Webcam webcam = Webcam.getDefault();
-		webcam.open();
-		ImageIO.write(webcam.getImage(), "PNG", new File("hello-world.png"));
-	}
+//	public static void main(String args[]) throws IOException {
+//		Webcam webcam = Webcam.getDefault();
+//		webcam.open();
+//		ImageIO.write(webcam.getImage(), "PNG", new File("hello-world.png"));
+//	}
 	
 }

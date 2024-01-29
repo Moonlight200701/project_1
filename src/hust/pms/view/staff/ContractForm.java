@@ -105,10 +105,18 @@ public class ContractForm implements Initializable, LabelHelper, TextFieldHelper
 	@FXML
 	private void btSearchAction(ActionEvent event) {
 		CustomerController cc = new CustomerController();
+		Customer cus = new Customer();
+		Vehicle veh = new Vehicle();
+		VehicleController vehc = new VehicleController();
+		Contract cont = new Contract();
+		CardController cardc = new CardController();
+		ContractController conc = new ContractController();
 		String[] listCus = cc.getCustomer(tfPhone.getText());
 		tfName.setText(listCus[0]);
 		tfEmail.setText(listCus[1]);
 		tfAddress.setText(listCus[2]);
+
+		
 		/*
 		for(int i = 0;i < listCus.length;i++) {
 			tfName.setText(str.get());
@@ -117,7 +125,7 @@ public class ContractForm implements Initializable, LabelHelper, TextFieldHelper
 
 	@FXML
 	private void btTerminateAction(ActionEvent event) {
-
+		
 	}
 
 	@FXML

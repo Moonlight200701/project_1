@@ -11,7 +11,7 @@ import hust.pms.controller.EmployeeController;
 //import org.apache.log4j.Logger;
 
 public class Parking {
-	private long parkingID;
+	private String parkingID;
 	private String parkName;
 	private String address;
 	private int slot;
@@ -52,7 +52,7 @@ public class Parking {
 		}
 	}
 	
-	public Parking(long parkingID, String parkName, String address, int slot, int no_veh) {
+	public Parking(String parkingID, String parkName, String address, int slot, int no_veh) {
 		this.parkingID = parkingID;
 		this.parkName = parkName;
 		this.address = address;
@@ -76,11 +76,11 @@ public class Parking {
 		this.companyID = companyID;
 	}
 
-	public long getParkingID() {
+	public String getParkingID() {
 		return parkingID;
 	}
 	
-	public void setParkingID(long parkingID) {
+	public void setParkingID(String parkingID) {
 		this.parkingID = parkingID;
 	}
 	
@@ -108,14 +108,14 @@ public class Parking {
 		this.no_veh = no_veh;
 	}
 
-	public long getParkingIDFromParkingName(String parkName) {
+	public String getParkingIDFromParkingName(String parkName) {
 		try {
 			ps = DataAccessHelper.getInstance().getConnection().prepareStatement(GET_PARKING_ID_BY_PARKING_NAME);
 			ps.setString(1, parkName);
 			rs = ps.executeQuery();
 			
 			while (rs.next()) {
-				parkingID = rs.getLong(1);
+				parkingID = rs.getString(1);
 				//currentParkingID = rs.getLong(1);
 			}
 			
@@ -164,7 +164,7 @@ public class Parking {
 			rs = ps.executeQuery();
 			
 			while (rs.next()) {
-				listParking.add(new Parking(rs.getLong("parkingid"), rs.getString("parkname"), rs.getString("address"), rs.getInt("slot"), rs.getInt("no_current_vehicle")));
+				listParking.add(new Parking(rs.getString("parkingid"), rs.getString("parkname"), rs.getString("address"), rs.getInt("slot"), rs.getInt("no_current_vehicle")));
 			}
 		} catch (SQLException sqle) {	
 			sqle.printStackTrace();

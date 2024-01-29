@@ -14,4 +14,5 @@ public class VehicleController {
 		Vehicle veh = new Vehicle();
 		return veh.isPlateExist(plate);
 	}	
+	
 }

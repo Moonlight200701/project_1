@@ -106,9 +106,9 @@ public class HistoryForm implements Initializable, LabelHelper {
     private void btSearchAction(ActionEvent event) {
     	String startDateStr;
     	String endDateStr;
-    	if (startDate.getValue() == null && endDate.getValue() == null) {
+    	if (startDate.getValue() == null || endDate.getValue() == null) {
     		setLabel(lbNotice, null, Color.RED, "Input Date");
-    		return;
+    		return;	
     	}
     	startDateStr = startDate.getValue().format(DateTimeFormatter.ofPattern("yyyy-MM-dd"));
     	endDateStr = endDate.getValue().format(DateTimeFormatter.ofPattern("yyyy-MM-dd"));

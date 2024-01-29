@@ -27,7 +27,7 @@ public class Constants {
 	public static final byte ROLE_SUPERIOR_ADMIN = 0;
 	public static final byte ROLE_ADMIN = 1;
 	public static final byte ROLE_STAFF = 2;
-	//public static final byte ROLE_CUSTOMER = 3;
+	public static final byte ROLE_CUSTOMER = 3;
 	
 	//CARD STATUS
 	public static final byte CARD_LOCKED = 0;

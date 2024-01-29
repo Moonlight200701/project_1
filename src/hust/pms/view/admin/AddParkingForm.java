@@ -64,13 +64,19 @@ public class AddParkingForm implements LabelHelper {
     	} else {
     		p.setAddress(tfAddress.getText());
     	}
-    	
     	if (slot == null || slot.trim().isEmpty()) {
-    		setLabel(lbNotice, null, Color.RED, "Please fill slot.");
-			System.out.println("slot is empty");
-			return;
+    	    setLabel(lbNotice, null, Color.RED, "Please fill slot.");
+    	    System.out.println("slot is empty");
+    	    return;
     	} else {
-    		p.setSlot(Integer.parseInt(slot));
+    	    try {
+    	        int slotNumber = Integer.parseInt(slot);
+    	        p.setSlot(slotNumber);
+    	    } catch (NumberFormatException e) {
+    	        setLabel(lbNotice, null, Color.RED, "Invalid Slot Input.");
+    	        System.out.println("slot is not a valid integer");
+    	        return;
+    	    }
     	}
     	
     	ParkingController pc = new ParkingController();

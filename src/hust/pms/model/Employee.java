@@ -17,7 +17,7 @@ import hust.pms.controller.SceneController;
 public class Employee extends User {
 	private int employeeID;
 	private long companyID;
-	private long parkingID;
+	private String parkingID;
 	private String username;
 	private String password;
 	private int roleID;
@@ -99,11 +99,11 @@ public class Employee extends User {
 		this.companyID = companyID;
 	}
 
-	public long getParkingID() {
+	public String getParkingID() {
 		return parkingID;
 	}
 
-	public void setParkingID(long parkingID) {
+	public void setParkingID(String parkingID) {
 		this.parkingID = parkingID;
 	}
 
@@ -187,7 +187,7 @@ public class Employee extends User {
 				emp.setUsername(rs.getString("username"));
 				emp.setPassword(rs.getString("password"));
 				emp.setCompanyID(rs.getInt("companyid"));
-				emp.setParkingID(rs.getInt("parkingid"));
+				emp.setParkingID(rs.getString("parkingid"));
 				emp.setRoleID(rs.getInt("roleid"));
 
 				listEmployee.add(emp);
@@ -298,7 +298,7 @@ public class Employee extends User {
 		ps.setString(7, username);
 		ps.setString(8, password);
 		ps.setLong(9, companyID);
-		ps.setLong(10, parkingID);
+		ps.setString(10, parkingID);
 		ps.setInt(11, roleID);
 
 		ps.executeUpdate();
@@ -316,7 +316,7 @@ public class Employee extends User {
 		ps.setString(6, super.getAddress());
 		ps.setString(7, username);
 		ps.setLong(8, companyID);
-		ps.setLong(9, parkingID);
+		ps.setString(9, parkingID);
 		ps.setInt(10, roleID);
 		ps.setInt(11, employeeID);
 		ps.executeUpdate();
