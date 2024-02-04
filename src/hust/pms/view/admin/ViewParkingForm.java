@@ -80,20 +80,7 @@ public class ViewParkingForm implements Initializable{
     	loc.toLogOutStatus(Employee.currentUserName);
 		SceneController.getInstance().toScene(event, Navigator.FXML_LOGIN);
     }
-	@FXML
-//	void enterPressed() {
-//		tfSearch.setOnKeyPressed(new EventHandler<KeyEvent>() {
-//
-//			@Override
-//			public void handle(KeyEvent keyEvent) {
-//				String text;
-//				if (keyEvent.getCode().isDigitKey() || keyEvent.getCode().isLetterKey()) {
-//					text = tfSearch.getText();
-//					System.out.println("search=" + text);
-//				}
-//			}
-//		});
-//	}
+
     
     private void loadTable() {
     	col_id.setCellValueFactory(new PropertyValueFactory<Parking, String>("parkingID"));
@@ -111,48 +98,10 @@ public class ViewParkingForm implements Initializable{
     	loadTable();
     }
     
-//    private void searchTableAndRefresh() {
-//    	FilteredList<Parking> filteredData = new FilteredList<>(parkingList, b -> true);
-//		
-//		tfSearch.textProperty().addListener((observable, oldValue, newValue) -> {
-//			filteredData.setPredicate(parking -> {
-//				
-//				if (newValue == null || newValue.isEmpty()) {
-//					return true;
-//				}
-//				
-//				String lowerCaseFilter = newValue.toLowerCase();
-//				
-//				if (parking.getParkName().toLowerCase().indexOf(lowerCaseFilter)!=-1) {
-//		//		if (parking.getParkingID().toLowerCase().indexOf(lowerCaseFilter) != -1) {
-//					return true; 
-//				} else if (parking.getParkName().toLowerCase().indexOf(lowerCaseFilter)!=-1) {
-//					return true;
-//				} else if (parking.getAddress().toLowerCase().indexOf(lowerCaseFilter)!=-1) {
-//					return true;
-//				} else if (parking.getSlot()!=-1) {
-//					return true;
-//				} else {
-//					return false;
-//				}
-//			});
-//		});
-//			
-//			// 3. Wrap the FilteredList in a SortedList. 
-//			SortedList<Parking> sortedData = new SortedList<>(filteredData);
-//			
-//			// 4. Bind the SortedList comparator to the TableView comparator.
-//			// 	  Otherwise, sorting the TableView would have no effect.
-//			sortedData.comparatorProperty().bind(parkingTable.comparatorProperty());
-//			
-//			// 5. Add sorted (and filtered) data to the table.
-//			parkingTable.setItems(sortedData);
-//    }
-
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		loadTable();
-//		searchTableAndRefresh();
+
 	}
 
 }

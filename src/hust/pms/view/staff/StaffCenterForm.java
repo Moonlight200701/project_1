@@ -492,24 +492,7 @@ public class StaffCenterForm implements Initializable, LabelHelper {
 		    						tfCID.clear();
 		    					}
 		    				}
-		    				
-		    				
-		    				/*
-		    				//Save guest record to customer table
-		    				cus.setName("Guest");
-		    				cus.setTime_created(currentCIDAndDateTime);
-		    				cusController.addCustomer(cus);
-		    				lastCustomerID = cusController.getLastID();
-		    				
-		    				//Save vehicle record to vehicle table
-		    				veh.setLicensePlate(currentCIDAndDateTime);
-		    				veh.setCustomerID(lastCustomerID);
-		    				vehController.addVehicle(veh);
-		    				
-		    				//Save contract
-		    				cont.setTime_created(currentDateTime);
-		    				//cont.setTime_end();
-		    				*/
+
 		    			} else if (cardController.getCardType(currentCID) == Constants.CARD_FOR_CUSTOMER) {
 		    				setLabel(lbType, null, Color.BLACK, "Customer with Contract");
 		    				
@@ -517,9 +500,7 @@ public class StaffCenterForm implements Initializable, LabelHelper {
 		    				if (rbtInMode.isSelected()) {
 		    					
 		    					System.out.println("Entrance mode");
-		    					setLabel(lbCID, null, Color.BLACK, tfCID.getText());
-		    					//setLabel(lbType, null, Color.BLACK, "Customer");
-		    					
+		    					setLabel(lbCID, null, Color.BLACK, tfCID.getText());   					
 		    					clearLabel(lbContractStatus);
 	    						clearLabel(lbFee);
 	    						clearLabel(lbName);
@@ -537,15 +518,9 @@ public class StaffCenterForm implements Initializable, LabelHelper {
 		    						setLabel(lbNotice, null, Color.RED, "Full slot.");
 		    						return;
 		    					} else {
-		    						//
 				    				currentDateTime = TimeHelper.getCurrentTimeToStr();
 									currentFullCIDAndDateTime = "./img_history/" + currentCID + "_" + currentDateTime + ".jpg";
 									currentCIDAndDateTime = currentCID + "_" + currentDateTime + ".jpg";
-									
-									//get image from webcam
-//									camController.getImage(webcam);
-									
-									//populate image which captured to image view
 									File file = new File(currentFullCIDAndDateTime);
 									iv_img_in_lp.setImage(new Image(file.toURI().toString()));
 									iv_img_out_lp.setImage(null);
@@ -563,9 +538,7 @@ public class StaffCenterForm implements Initializable, LabelHelper {
 			    					
 			    					parkController.increaseNoCurrentVehicle();
 			    					setLabel(lbTimeIn, null, Color.BLACK, TimeHelper.strToTime(currentDateTime));
-			    					String plate = null;
-			    					
-			    					//System.out.println(currentCIDAndDateTime);
+			    					String plate = null;			    					
 			    					plate = RecognitionHelper.toPlateStr(currentCIDAndDateTime); 
 			    					System.out.println("plateInUsing="+plate);
 			    					his.setPlateIn(plate);
@@ -573,8 +546,7 @@ public class StaffCenterForm implements Initializable, LabelHelper {
 			    					hisController.addHistory(his);
 			    					clearLabel(lbTimeOut);
 		    					}
-		    					
-		    					//Out Mode
+
 		    				} else if (rbtOutMode.isSelected()) {
 		    					System.out.println("Exit mode");
 		    					setLabel(lbCID, null, Color.BLACK, currentCID);
@@ -602,19 +574,14 @@ public class StaffCenterForm implements Initializable, LabelHelper {
 		    						System.out.println("2 wheeler mode");
 		    						
 		    						setLabel(lbNotice, null, Color.GREEN, "Card is valid.");
-		    						
-		    						// Time to capturing :)
-		    						currentDateTime = TimeHelper.getCurrentTimeToStr();
-		    						
+
+		    						currentDateTime = TimeHelper.getCurrentTimeToStr();	
 									currentFullCIDAndDateTime = "./img_history/" + currentCID + "_" + currentDateTime + ".jpg";
 									currentCIDAndDateTime = currentCID + "_" + currentDateTime + ".jpg";
-//		    						camController.getImage(webcam);
-									
-									//populate image which captured to image view
+
 									File newRecord = new File(currentFullCIDAndDateTime);
 									iv_img_out_lp.setImage(new Image(newRecord.toURI().toString()));
-									
-									//populate old record image which captured to image view
+
 									File oldRecord = new File(hisController.getURLImageLPIn(currentCID, Constants.VEHICLE_INSIDE));
 									iv_img_in_lp.setImage(new Image(oldRecord.toURI().toString()));
 																		
@@ -656,17 +623,12 @@ public class StaffCenterForm implements Initializable, LabelHelper {
 		    						System.out.println(">= 3 wheeler mode");
 		    						
 		    						setLabel(lbNotice, null, Color.GREEN, "Card is valid.");
-		    						
-		    						// Time to capturing :)
+
 		    						currentDateTime = TimeHelper.getCurrentTimeToStr();
 									currentFullCIDAndDateTime = "./img_history/" + currentCID + "_" + currentDateTime + ".jpg";
-//		    						camController.getImage(webcam);
-		    						
-		    						//populate image which captured to image view
 									File newRecord = new File(currentFullCIDAndDateTime);
 									iv_img_out_lp.setImage(new Image(newRecord.toURI().toString()));
 									
-									//populate old record image which captured to image view
 									File oldRecord = new File(hisController.getURLImageLPIn(currentCID, Constants.VEHICLE_INSIDE));
 									iv_img_in_lp.setImage(new Image(oldRecord.toURI().toString()));
 		    						
@@ -730,22 +692,14 @@ public class StaffCenterForm implements Initializable, LabelHelper {
 
 			@Override
 			protected Void call() throws Exception {
-//				Dimension[] nonStandardResolutions = new Dimension[] {
-//						WebcamResolution.PAL.getSize(),
-//						WebcamResolution.HD720.getSize(),
-//						new Dimension(1000, 500),
-//						new Dimension(1000, 500),
-//					};
 				Dimension resolution = new Dimension(800, 800);
 				if (webcam == null) {
 					webcam = Webcam.getWebcams().get(webcamIndex);
-//					webcam = Webcam.getDefault();
 					webcam.setCustomViewSizes(new Dimension[] {resolution});
 					webcam.setViewSize(resolution);
 					webcam.open();
 				} else {
 					closeCamera();
-//					webcam = Webcam.getWebcams().get(webcamIndex);
 					webcam = Webcam.getDefault();
 					webcam.open();
 				}

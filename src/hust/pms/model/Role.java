@@ -20,8 +20,6 @@ public class Role {
 	private PreparedStatement ps = null;
 	private ResultSet rs = null;
 	
-	//AlertController alertController = new AlertController();
-	
 	private static final String GET_ROLE = "select * from role ORDER BY roleno ASC";
 	private static final String GET_ROLE_NAME = "select rolename from Role";
 	private static final String GET_ROLE_NAME_EXCEPT_ORIGIN_DEV = "SELECT rolename FROM role WHERE roleno >= 2";
@@ -30,7 +28,7 @@ public class Role {
 	private static final String GET_EMPLOYEE_ROLE_NO = "select roleno from Role r join Employee e on r.roleid = e.roleid where e.username=?";
 	
 	private static final String SEARCH_ROLE_NO_BY_ROLE_NAME = "select roleno from Role where rolename=?";
-	//private static final String SEARCH_ROLE_NO_BY_ROLE_ID = "select roleno from Role where roleid=?";
+	
 	
 	private static final String ADD_ROLE = "insert into Role (roleno, rolename, description) values (?,?,?)";
 	private static final String DELETE_ROLE = "delete from Role where roleid=?";
@@ -39,7 +37,6 @@ public class Role {
 		try {
 			DataAccessHelper.getInstance().role = this;
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
@@ -63,7 +60,7 @@ public class Role {
 	}
 	
 	public int getRoleNo(String roleName) {
-		//Role role = new Role();
+	
 		try {
 			ps = DataAccessHelper.getInstance().getConnection().prepareStatement(SEARCH_ROLE_NO_BY_ROLE_NAME);
 			ps.setString(1, roleName);
@@ -154,40 +151,31 @@ public class Role {
 			ps = DataAccessHelper.getInstance().getConnection().prepareStatement(GET_EMPLOYEE_ROLE_NO);
 			ps.setString(1, userName);
 			rs = ps.executeQuery();
-			// System.out.println(rs);
-			// System.out.println(rs.next());
+			
 			if (rs != null && rs.next()) {
-				// System.out.println("roleno=" + rs.getInt("roleno"));
+				
 				return rs.getInt("roleno");
 			}
 		} catch (SQLException sqle) {
-			// Logger.getLogger(Employee.class.getName()).log(, sqle);
 			sqle.printStackTrace();
 			SceneController.getInstance().toAlertWithTitleAndContent("Error", "Database Error");
-			// Logger.getLogger(Employee.class.getName()).log(Level.ERROR, null, sqle);
 		}
 		return 0;
 	}
 	
 	public String getRoleNameByUserName(String userName) {
 		try {
-			// getInstance();
 			PreparedStatement ps = null;
 			ResultSet rs = null;
 			ps = DataAccessHelper.getInstance().getConnection().prepareStatement(GET_EMPLOYEE_ROLE_NAME);
 			ps.setString(1, userName);
 			rs = ps.executeQuery();
-			// System.out.println(rs);
-			// System.out.println(rs.next());
 			if (rs != null && rs.next()) {
-				// System.out.println("roleno=" + rs.getInt("roleno"));
 				return rs.getString("rolename");
 			}
 		} catch (SQLException sqle) {
-			// Logger.getLogger(Employee.class.getName()).log(, sqle);
 			sqle.printStackTrace();
 			SceneController.getInstance().toAlertWithTitleAndContent("Error", "Database Error");
-			// Logger.getLogger(Employee.class.getName()).log(Level.ERROR, null, sqle);
 		}
 		return null;
 	}

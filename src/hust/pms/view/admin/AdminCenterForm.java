@@ -22,8 +22,6 @@ import javafx.scene.control.Label;
 import javafx.scene.paint.Color;
 
 public class AdminCenterForm implements Initializable, LabelHelper{
-
-	//SceneController sceneRouter = SceneController.getInstance();
 	
 	@FXML
     private Label lbWelcome;
@@ -65,7 +63,6 @@ public class AdminCenterForm implements Initializable, LabelHelper{
     private void btLogoutAction(ActionEvent event) throws SQLException {
     	LogoutController loc = new LogoutController();
     	loc.toLogOutStatus(Employee.currentUserName);
-    	//System.out.println("currentUser in AdminCenterForm="+Employee.currentUser);
     	SceneController.getInstance().toScene(event, Navigator.FXML_LOGIN);
     }
 
@@ -88,10 +85,8 @@ public class AdminCenterForm implements Initializable, LabelHelper{
     	CompanyController cc = new CompanyController();
     	EmployeeController ec = new EmployeeController();
     	ParkingController pc = new ParkingController();
-    	//ParkingController pc = new ParkingController();
-    	
+    	    	
     	lbCompany.setText(cc.getCurrentEmployeeCompanyFromCompanyID());
-    	//lbParking.setText(pc.getCurrentEmployeeParkingFromParkingID());
     	
     	lbNumberOfStaff.setText(String.valueOf(ec.getNumberOfStaffBelongToCompany(Employee.currentEmployeeCompanyID)));
     	lbNumberOfParking.setText(String.valueOf(pc.getNumberOfParkingBelongToCompany(Employee.currentEmployeeCompanyID)));
@@ -104,7 +99,6 @@ public class AdminCenterForm implements Initializable, LabelHelper{
 		try {
 			loadLabel();
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
@@ -117,7 +111,6 @@ public class AdminCenterForm implements Initializable, LabelHelper{
 
 	@Override
 	public void clearLabel(Label label) {
-		// TODO Auto-generated method stub
 		
 	}
 

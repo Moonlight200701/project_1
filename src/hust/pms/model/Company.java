@@ -109,10 +109,10 @@ public class Company {
 			
 			while (rs.next()) {
 				listCompany.add(rs.getString("companyname"));
-				//listCompany.add(company);
+				
 			} 
 		} catch (SQLException sqle) {
-			//Logger.getLogger(Company.class.getName()).log(Level.ERROR, sqle);
+			
 			sqle.printStackTrace();
 		}
 		return listCompany;
@@ -124,10 +124,7 @@ public class Company {
 			ps = DataAccessHelper.getInstance().getConnection().prepareStatement(GET_COMPANY_WITHOUT_ORIGIN_DEV);
 			rs = ps.executeQuery();
 			
-			while (rs.next()) {
-//				System.out.println("id="+rs.getInt("companyid"));
-//				System.out.println("companyname="+rs.getString("companyname"));
-				//System.out.println();
+			while (rs.next()) {		
 				listCompany.add(new Company(rs.getInt("companyid"), rs.getString("companyname"), rs.getString("address"), rs.getString("phonenumber")));
 			}
 			System.out.println("listCompany=" + listCompany);

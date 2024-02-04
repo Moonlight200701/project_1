@@ -23,8 +23,6 @@ import javafx.scene.paint.Color;
 
 public class ModifyCompanyForm implements Initializable {
 
-	//public static int confirmationValue;
-	
     @FXML
     private TextField tfCompanyName;
 
@@ -89,8 +87,6 @@ public class ModifyCompanyForm implements Initializable {
     		comController.deleteCompany(ViewCompanyForm.selectedCompanyID);
         	SceneController.getInstance().sAdminCompanyForm.refreshTable();
         	SceneController.getInstance().closeSceneWithStageRelatedButton(btClose);
-        	//SceneController.getInstance().closeSceneWithoutButton(event);
-    		//SceneController.getInstance().closeSceneWithoutButton(event);
     	}
     }
 

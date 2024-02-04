@@ -115,12 +115,6 @@ public class ContractForm implements Initializable, LabelHelper, TextFieldHelper
 		tfName.setText(listCus[0]);
 		tfEmail.setText(listCus[1]);
 		tfAddress.setText(listCus[2]);
-
-		
-		/*
-		for(int i = 0;i < listCus.length;i++) {
-			tfName.setText(str.get());
-		}*/
 	}
 
 	@FXML
@@ -152,7 +146,6 @@ public class ContractForm implements Initializable, LabelHelper, TextFieldHelper
 		Contract cont = new Contract();
 		CardController cc = new CardController();
 		ContractController conc = new ContractController();
-		//Card c = new Card();
 		cus.setPhoneNumber(tfPhone.getText());
 		cus.setName(tfName.getText());
 		cus.setEmail(tfEmail.getText());
@@ -202,8 +195,6 @@ public class ContractForm implements Initializable, LabelHelper, TextFieldHelper
 		veh.setModel(tfModel.getText());
 		veh.setColor(tfColor.getText());
 		veh.setStatus(tfStatus.getText());
-		//long lastID;
-		//lastID = cusc.getLastID();
 		veh.setCustomerID(cusc.getCustomerIDByPhone(tfPhone.getText()));
 		vehc.addVehicle(veh);
 		String currentTime = null;
@@ -228,7 +219,6 @@ public class ContractForm implements Initializable, LabelHelper, TextFieldHelper
 	private void addInfoOldCustomerWithOldVehicle() {
 		CustomerController cusc = new CustomerController();
 		ContractController conc = new ContractController();
-		//VehicleController vehc = new VehicleController();
 		Contract cont = new Contract();
 		CardController cc = new CardController();
 		String currentTime = null;
@@ -293,7 +283,7 @@ public class ContractForm implements Initializable, LabelHelper, TextFieldHelper
 
 	@Override
 	public void clearLabel(Label label) {
-		// label.clear();
+		
 	}
 
 	@Override
@@ -328,7 +318,6 @@ public class ContractForm implements Initializable, LabelHelper, TextFieldHelper
 					addInfo();
 				}
 			} catch (SQLException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			} 
 			

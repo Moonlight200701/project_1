@@ -45,9 +45,6 @@ public class AddStaffForm implements Initializable, LabelHelper, TextFieldHelper
 	@FXML
 	private ComboBox<String> comboGender;
 
-//	private final ObservableList<String> comboGenderList = FXCollections.observableArrayList("Male", "Female",
-//			"Unknow");
-
 	@FXML
 	private ComboBox<String> comboCompany;
 
@@ -90,31 +87,22 @@ public class AddStaffForm implements Initializable, LabelHelper, TextFieldHelper
 	@FXML
 	private void btAddAction() throws SQLException {
 		Employee emp = new Employee();
-		// Date date = new Date();
-		// check name
-		//String name = null;
 		if (tfName.getText() == null || tfName.getText().trim().isEmpty()) {
-			// sceneRoute.sceneAlertWithTitleAndContent("Missing full Name", "Please fill
-			// your full name");
 			labelNotice.setTextFill(Color.RED);
-			// labelNotice.setAlignment(Pos.CENTER);
 			labelNotice.setText("Please fill your full name.");
 			System.out.println("name is empty");
 			return;
 		} else {
 			emp.setName(tfName.getText());
 		}
-		//String gender = comboGender.getValue();
 		if (comboGender.getSelectionModel().isEmpty()) {
 			labelNotice.setTextFill(Color.RED);
-			// labelNotice.setAlignment(Pos.CENTER);
 			labelNotice.setText("Please fill your gender.");
 			return;
 		} else {
 			emp.setGender(comboGender.getValue());
 		}
 		
-		//System.out.println("gender=" + gender);
 		
 		datePicker.setConverter(new StringConverter<LocalDate>() {
 
@@ -135,71 +123,46 @@ public class AddStaffForm implements Initializable, LabelHelper, TextFieldHelper
 				return LocalDate.parse(dateString, dateTimeFormatter);
 			}
 		});
-		//String birthdate = datePicker.getValue().toString();
 		if (datePicker.getValue() == null) {
 			labelNotice.setTextFill(Color.RED);
-			// labelNotice.setAlignment(Pos.CENTER);
 			labelNotice.setText("Please fill your date of birth.");
 			return;
 		} else {
 			emp.setBirthDate(datePicker.getValue().format(DateTimeFormatter.ofPattern("dd/MM/yyyy")));
 		}
-		
-		//.format(DateTimeFormatter.ofPattern("dd/MM/yyyy"));
-				
-		// check phone number
-		//String phone;
+
 		if (tfPhone.getText() == null || tfPhone.getText().trim().isEmpty()) {
-			// sceneRoute.sceneAlertWithTitleAndContent("Missing phone number", "Please fill
-			// your phone number");
 			labelNotice.setTextFill(Color.RED);
-			// labelNotice.setAlignment(Pos.CENTER);
 			labelNotice.setText("Please fill your phone number.");
 			System.out.println("phone number is empty");
 			return;
 		} else if (AccountHelper.validatePhoneNumber(tfPhone.getText())) {
-			//phone = tfPhone.getText();
 			emp.setPhoneNumber(tfPhone.getText());
 		} else {
-			// sceneRoute.sceneAlertWithTitleAndContent("Invalid phone number format",
-			// "Please check your phone number");
 			labelNotice.setTextFill(Color.RED);
-			// labelNotice.setAlignment(Pos.CENTER);
 			labelNotice.setText("Invalid phone number format.");
 			System.out.println("Invalid phone number format.");
 			return;
 		}
 
-		// check email
-		//String email = null;
 		if (tfEmail.getText() == null || tfEmail.getText().trim().isEmpty()) {
-			// sceneRoute.sceneAlertWithTitleAndContent("Missing email", "Please fill your
-			// email");
 			labelNotice.setTextFill(Color.RED);
-			// labelNotice.setAlignment(Pos.CENTER);
 			labelNotice.setText("Please fill your email.");
 			System.out.println("Please fill your email.");
 			return;
 		} else if (AccountHelper.validateEmail(tfEmail.getText())) {
-			//email = tfEmail.getText();
 			emp.setEmail(tfEmail.getText());
 		} else {
-			// sceneRoute.sceneAlertWithTitleAndContent("Invalid email format", "Please
-			// check your email");
 			labelNotice.setTextFill(Color.RED);
-			// labelNotice.setAlignment(Pos.CENTER);
 			labelNotice.setText("Invalid email format.");
 			System.out.println("Invalid email format.");
 			return;
 		}
 
-		//String address = tfAddress.getText();
 		emp.setAddress(tfAddress.getText());
 
-		//String username = tfUsername.getText();
 		if (tfUsername.getText().isEmpty()) {
 			labelNotice.setTextFill(Color.RED);
-			// labelNotice.setAlignment(Pos.CENTER);
 			labelNotice.setText("Username is required.");
 			return;
 		} else {
@@ -207,10 +170,8 @@ public class AddStaffForm implements Initializable, LabelHelper, TextFieldHelper
 		}
 		
 
-		//String password = bcryptHashing(pfPassword.getText());
 		if (pfPassword.getText().isEmpty()) {
 			labelNotice.setTextFill(Color.RED);
-			// labelNotice.setAlignment(Pos.CENTER);
 			labelNotice.setText("Password is required.");
 		} else {
 			emp.setPassword(AuthService.getInstance().bEncrypt(pfPassword.getText()));
@@ -218,18 +179,10 @@ public class AddStaffForm implements Initializable, LabelHelper, TextFieldHelper
 		
 
 		System.out.println("companyname=" + comboCompany.getValue());
-		//int companyid = comController.getCompanyID(comboCompany.getValue().toString());
+	
 		emp.setCompanyID(comController.getCompanyIDByCompanyName(comboCompany.getValue().toString()));
-		//System.out.println("companyid=" + companyid);
-
-		//int parkingid = parkController.getParkingID(comboParking.getValue().toString());
-		
-		//System.out.println("parkingid=" + parkingid);
-
-		//int roleno = roleController.getRoleNo(comboRole.getValue().toString());
 		if (comboRole.getSelectionModel().isEmpty()) {
 			labelNotice.setTextFill(Color.RED);
-			// labelNotice.setAlignment(Pos.CENTER);
 			labelNotice.setText("Missing Role.");
 			return;
 		} else {
@@ -238,30 +191,24 @@ public class AddStaffForm implements Initializable, LabelHelper, TextFieldHelper
 		
 		if (comboParking.getSelectionModel().isEmpty()) {
 			labelNotice.setTextFill(Color.RED);
-			// labelNotice.setAlignment(Pos.CENTER);
 			labelNotice.setText("Missing Parking.");
 			return;
 		} else {
 			emp.setParkingID(parkController.getParkingID(comboParking.getValue().toString()));
 		}
-		//System.out.println("roleno=" + roleno);
 
 		try {
 			if (empController.isEmailExist(tfEmail.getText())) {
-				// sceneRoute.sceneAlertWithTitleAndContent("Error when adding Staff", "Email is
-				// exist");
 				labelNotice.setTextFill(Color.RED);
 				labelNotice.setText("Email is exist.");
 				System.err.println("Email is exist.");
 				return;
 			} else if (empController.isPhoneNumberExist(tfPhone.getText())) {
-				// sceneRoute.sceneAlertWithTitleAndContent("", "");
 				labelNotice.setTextFill(Color.RED);
 				labelNotice.setText("Phone number is exist.");
 				System.err.println("Phone number is exist.");
 				return;
 			} else {
-				//Employee emp = new Employee();
 				empController.addStaff(emp);
 				labelNotice.setTextFill(Color.GREEN);
 				labelNotice.setText("Add staff successfully.");
@@ -306,7 +253,6 @@ public class AddStaffForm implements Initializable, LabelHelper, TextFieldHelper
 				.observableArrayList(roleController.getRoleNameToLoadComboBox());
 		CompanyController cc = new CompanyController();
 		comboGender.setItems(comboGenderList);
-		//comboCompany.setItems(comboCompanyObList);
 		comboCompany.getSelectionModel().select(cc.getCurrentEmployeeCompanyFromCompanyID());
 		comboParking.setItems(comboParkingObList);
 		comboRole.setItems(comboRoleObList);

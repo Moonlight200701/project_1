@@ -38,7 +38,7 @@ public class Parking {
 	
 	private static final String IS_FULL_SLOT = "SELECT * FROM parking where parkingid=? && no_current_vehicle>=slot";
 	
-	//public static long currentParkingID;
+
 	public static int noSlot;
 	public static int noCurrentVehicle;
 	
@@ -47,7 +47,6 @@ public class Parking {
 		try {
 			DataAccessHelper.getInstance().parking = this;
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
@@ -116,7 +115,6 @@ public class Parking {
 			
 			while (rs.next()) {
 				parkingID = rs.getString(1);
-				//currentParkingID = rs.getLong(1);
 			}
 			
 		} catch (SQLException sqle) {
@@ -238,7 +236,6 @@ public class Parking {
 		try {
 			PreparedStatement ps = null;
 			ps = DataAccessHelper.getInstance().getConnection().prepareStatement(DECREASE_NO_CURRENT_VEHICLE);
-			//System.out.println("currentParkingID="+currentParkingID);
 			ps.setLong(1, Employee.currentEmployeeParkingID);
 			
 			ps.executeUpdate();

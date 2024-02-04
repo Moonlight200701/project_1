@@ -28,8 +28,7 @@ public class EmployeeController {
 	}
 	
 	public void addStaff(Employee emp) throws ClassNotFoundException, SQLException {
-		//Employee emp = new Employee();
-		//emp.addStaff(name, gender, birthDate, phonenumber, email, address, username, password, companyid, parkingid, roleid);
+		
 		emp.addStaff();
 	}
 	

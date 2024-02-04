@@ -77,7 +77,6 @@ public class SuperiorAdminCenterForm implements Initializable {
 			lbNumberOfCompany.setText(String.valueOf(cc.getNumberOfCompany()));
 	    	lbNumberOfSAdmin.setText(String.valueOf(ec.getNumberOfSAdmin()));
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}	
     }

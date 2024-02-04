@@ -234,18 +234,9 @@ public class AdminDetailForm extends AccountHelper implements Initializable {
 			emp.setRoleID(roleController.getRoleNo(comboRole.getValue().toString()));
 		}
 		
-		//System.out.println("roleno=" + roleno);
-
 		try {
 			if (empController.isEmailExistExceptCurrent(ViewAdminForm.selectedEmployeeID, tfEmail.getText())) {
-				// sceneRoute.sceneAlertWithTitleAndContent("Error when adding Staff", "Email is exist");
 				if (empController.isPhoneNumberExistExceptCurrent(ViewAdminForm.selectedEmployeeID, tfPhone.getText())) {
-					// sceneRoute.sceneAlertWithTitleAndContent("", "");
-					//labelNotice.setTextFill(Color.RED);
-					//labelNotice.setText("Phone number is exist.");
-					//System.out.println("Phone number is exist.");
-					//return;
-					//Employee emp = new Employee();
 					empController.updateStaff(emp, ViewAdminForm.selectedEmployeeID);
 					labelNotice.setTextFill(Color.GREEN);
 					labelNotice.setText("Update staff successfully.");
@@ -258,13 +249,11 @@ public class AdminDetailForm extends AccountHelper implements Initializable {
 					System.out.println("Email is exist.");
 					return;
 			} else if (empController.isPhoneNumberExist(tfPhone.getText())) {
-				// sceneRoute.sceneAlertWithTitleAndContent("", "");
 				labelNotice.setTextFill(Color.RED);
 				labelNotice.setText("Phone number is exist.");
 				System.out.println("Phone number is exist.");
 				return;
 			} else {
-				//Employee emp = new Employee();
 				empController.updateStaff(emp, ViewStaffForm.selectedEmployeeID);
 				labelNotice.setTextFill(Color.GREEN);
 				labelNotice.setText("Update staff successfully.");
@@ -284,7 +273,6 @@ public class AdminDetailForm extends AccountHelper implements Initializable {
 		try {
 			empController.deleteStaff(ViewStaffForm.selectedEmployeeID);
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		sceneRoute.adminStaffForm.refreshTable();
@@ -297,24 +285,10 @@ public class AdminDetailForm extends AccountHelper implements Initializable {
     }
 
     private void loadTextField() {
-    	//System.out.println("selectedEmpID=" + SuperiorAdmin_SAdminForm.selectedEmployeeID);
-    	//String[] arr = empController.getStaffDetail(Admin_StaffForm.selectedEmployeeID);
     	EmployeeCompanyRoleController ecrc = new EmployeeCompanyRoleController();
-    	//LoginController lc = new LoginController();
     	
     	ArrayList<EmployeeCompanyRole> listECR = null;
     	listECR = ecrc.getStaffDetail(ViewAdminForm.selectedEmployeeID);
-    	
-    	/*
-    	if (lc.getRoleNoByUserName(Employee.currentUserName) == 0) {
-    		listECR = ecrc.getStaffDetail(SuperiorAdmin_SAdminForm.selectedEmployeeID);
-    	} else if (lc.getRoleNoByUserName(Employee.currentUserName) == 1) {
-    		listECR = ecrc.getStaffDetail(Admin_StaffForm.selectedEmployeeID);
-    	} else if (lc.getRoleNoByUserName(Employee.currentUserName) == 2) {
-    		//nothing
-    	}
-    	*/
-    	
     	for (EmployeeCompanyRole ecr : listECR) {
     		tfName.setText(ecr.getName());
     		comboGender.getSelectionModel().select(ecr.getGender());
@@ -323,7 +297,6 @@ public class AdminDetailForm extends AccountHelper implements Initializable {
     			LocalDate dt = date.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
     			datePicker.setValue(dt);
     		} catch (ParseException pe) {
-    			// TODO Auto-generated catch block
     			pe.printStackTrace();
     		}
     		tfPhone.setText(ecr.getPhoneNumber());

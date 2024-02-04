@@ -112,7 +112,7 @@ public class LoginForm implements LabelHelper {
 
 	@Override
 	public void clearLabel(Label label) {
-		// TODO Auto-generated method stub
+		
 		
 	}
 }

@@ -30,7 +30,6 @@ public class EmployeeCompanyRole {
 
 	public EmployeeCompanyRole(String name, String gender, String birthDate, String phoneNumber, String email,
 			String address, String username, String companyName, String parkingName, String roleName) {
-
 		this.name = name;
 		this.gender = gender;
 		this.birthDate = birthDate;

@@ -35,17 +35,12 @@ public class DataAccessHelper {
 		try {
 			Class.forName(URL_DRIVER);
 			this.conn = DriverManager.getConnection(URL_DB, USERNAME, PASSWORD);
-			// System.out.println("Connector notice: Connection successfully ...");
-
 		} catch (ClassNotFoundException cnfe) {
 			cnfe.printStackTrace();
 			System.out.println(cnfe);
 		} catch (SQLException sqle) {
 			sqle.printStackTrace();
 			SceneController.getInstance().toAlertWithTitleAndContent("Database connection failed", sqle.toString());
-			//alert.dialogAlert("Database connection failed", sqle.toString());
-			//Logger.getLogger(DataAccessHelper.class.getClass()).log(Level.SEVERE, null, e);
-			//System.exit(0);
 		} catch (Exception e) {
 			SceneController.getInstance().toAlertWithTitleAndContent("Database connection failed", e.toString());
 		}

@@ -21,15 +21,6 @@ public class Vehicle {
 	
 	public Vehicle() {}
 	
-	/**
-	 * @param licensePlate
-	 * @param type
-	 * @param brand
-	 * @param model
-	 * @param color
-	 * @param status
-	 * @param customerID
-	 */
 	public Vehicle(String licensePlate, String type, String brand, String model, String color, String status,
 			long customerID) {
 		this.licensePlate = licensePlate;

@@ -184,36 +184,13 @@ public class HistoryForm implements Initializable, LabelHelper {
 				}
 			});
 		});
-			
-			// 3. Wrap the FilteredList in a SortedList. 
+
 			SortedList<History> sortedData = new SortedList<>(filteredData);
-			
-			// 4. Bind the SortedList comparator to the TableView comparator.
-			// 	  Otherwise, sorting the TableView would have no effect.
+
 			sortedData.comparatorProperty().bind(tbHistory.comparatorProperty());
 			
-			// 5. Add sorted (and filtered) data to the table.
 			tbHistory.setItems(sortedData);
     }
-    /*
-    private void searchTableByDate() {
-    	FilteredList<History> filteredItems = new FilteredList<>(listHistory);
-    	filteredItems.predicateProperty().bind(Bindings.createObjectBinding(() -> {
-            LocalDate minDate = startDate.getValue();
-            LocalDate maxDate = endDate.getValue();
-
-            // get final values != null
-            final LocalDate finalMin = minDate == null ? LocalDate.MIN : minDate;
-            final LocalDate finalMax = maxDate == null ? LocalDate.MAX : maxDate;
-
-            // values for openDate need to be in the interval [finalMin, finalMax]
-            return ti -> !finalMin.isAfter(ti.getTimeIn()) && !finalMax.isBefore(ti.getOpenDate());
-        },
-        startDate.valueProperty(),
-        endDate.valueProperty()));
-
-    	tbHistory.setItems(filteredItems);
-    }*/
 
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {

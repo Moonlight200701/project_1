@@ -95,7 +95,7 @@ public class Card {
 			rs = ps.executeQuery();
 			while (rs.next()) {
 				status = rs.getByte("status");
-				//return true;
+			
 			}
 		} catch (SQLException sqle) {
 			sqle.printStackTrace();

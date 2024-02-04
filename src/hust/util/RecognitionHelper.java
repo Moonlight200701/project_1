@@ -25,13 +25,9 @@ public class RecognitionHelper {
 			try {
 				pb = new ProcessBuilder(programs, currentRoot + pathToPy + pyFile, currentRoot + pathToImg + imgURL);
 				process = pb.start();
-				// process = Runtime.getRuntime().exec(programs + " " + currentRoot + pathToPy +
-				// pyPath + " " + imgURL);
-				// stdout = process.getInputStream();
 				reader = new BufferedReader(new InputStreamReader(process.getInputStream()));
 
 				while ((plate = reader.readLine()) != null) {
-					//System.out.println(plate);
 					_plate = plate;
 				}
 				process.waitFor();
@@ -43,13 +39,9 @@ public class RecognitionHelper {
 			try {
 				pb = new ProcessBuilder(programs, currentRoot + pathToPy + pyFile, currentRoot + pathToImg + imgURL);
 				process = pb.start();
-				// process = Runtime.getRuntime().exec(programs + " " + currentRoot + pathToPy +
-				// pyPath + " " + imgURL);
-				// stdout = process.getInputStream();
 				reader = new BufferedReader(new InputStreamReader(process.getInputStream()));
 
 				while ((plate = reader.readLine()) != null) {
-					//System.out.println(plate);
 					_plate = plate;
 				}
 				process.waitFor();
@@ -61,13 +53,9 @@ public class RecognitionHelper {
 			try {
 				pb = new ProcessBuilder(programs, currentRoot + pathToPy + pyFile, currentRoot + pathToImg + imgURL);
 				process = pb.start();
-				// process = Runtime.getRuntime().exec(programs + " " + currentRoot + pathToPy +
-				// pyPath + " " + imgURL);
-				// stdout = process.getInputStream();
 				reader = new BufferedReader(new InputStreamReader(process.getInputStream()));
 
 				while ((plate = reader.readLine()) != null) {
-					//System.out.println(plate);
 					_plate = plate;
 				}
 				process.waitFor();
@@ -79,13 +67,9 @@ public class RecognitionHelper {
 			try {
 				pb = new ProcessBuilder(programs, currentRoot + pathToPy + pyFile, currentRoot + pathToImg + imgURL);
 				process = pb.start();
-				// process = Runtime.getRuntime().exec(programs + " " + currentRoot + pathToPy +
-				// pyPath + " " + imgURL);
-				// stdout = process.getInputStream();
 				reader = new BufferedReader(new InputStreamReader(process.getInputStream()));
 
 				while ((plate = reader.readLine()) != null) {
-					//System.out.println(plate);
 					_plate = plate;
 				}
 				process.waitFor();
@@ -99,8 +83,4 @@ public class RecognitionHelper {
 		System.out.println("plate=" + _plate);
 		return _plate;
 	}
-	/*
-	 * public static void main(String[] args) {
-	 * toPlateStr("0015158841_2021-06-18_08h34m17s.jpg"); }
-	 */
 }

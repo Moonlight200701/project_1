@@ -99,9 +99,7 @@ public class ViewAdminForm implements Initializable {
 
     @FXML
     void empTableActionMouseClicked(MouseEvent event) {
-    	if (event.getClickCount() == 2) {
-			 //System.out.println("empID="+employeeTable.getSelectionModel().getSelectedItem().getEmployeeID());
-			 
+    	if (event.getClickCount() == 2) {	 
 			 selectedEmployeeID = employeeTable.getSelectionModel().getSelectedItem().getEmployeeID();
 			 selectedEmail = employeeTable.getSelectionModel().getSelectedItem().getEmail();
 			 selectedPhoneNumber = employeeTable.getSelectionModel().getSelectedItem().getPhoneNumber();
@@ -109,7 +107,6 @@ public class ViewAdminForm implements Initializable {
 			 
 			 System.out.println("currentEmployeeID=" + selectedEmployeeID);
 			 sc.toParallelScene(Navigator.FXML_ADMIN_DETAIL);
-			 //loadTable();
 		 }
     }
 
@@ -159,14 +156,10 @@ public class ViewAdminForm implements Initializable {
 			});
 		});
 			
-			// 3. Wrap the FilteredList in a SortedList. 
 			SortedList<Employee> sortedData = new SortedList<>(filteredData);
 			
-			// 4. Bind the SortedList comparator to the TableView comparator.
-			// 	  Otherwise, sorting the TableView would have no effect.
 			sortedData.comparatorProperty().bind(employeeTable.comparatorProperty());
 			
-			// 5. Add sorted (and filtered) data to the table.
 			employeeTable.setItems(sortedData);
 		
     }

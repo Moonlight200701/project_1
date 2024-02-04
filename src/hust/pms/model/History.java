@@ -332,18 +332,7 @@ public class History {
 		this.doubt = doubt;
 		this.cardID = cardID;
 	}
-	/**
-	 * @param historyID
-	 * @param imgIn
-	 * @param imgOut
-	 * @param imgLPIn
-	 * @param imgLPOut
-	 * @param timeIn
-	 * @param timeOut
-	 * @param fee
-	 * @param visitStatus
-	 * @param cardID
-	 */
+
 	public History(long historyID, String imgIn, String imgOut, String imgLPIn, String imgLPOut, String timeIn,
 			String timeOut, byte visitStatus,double fee, String cardID) {
 		super();

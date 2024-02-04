@@ -33,11 +33,7 @@
             <Font size="13.0" />
          </font>
       </TextField>
-      <Button fx:id="btAddStaff" layoutX="29.0" layoutY="77.0" mnemonicParsing="false" onAction="#btAddStaffAction" prefHeight="30.0" prefWidth="120.0" text="Add SAdmin">
-         <font>
-            <Font name="System Bold" size="13.0" />
-         </font>
-      </Button>
+
       <Label layoutX="179.0" layoutY="61.0" text="Double click any rows to show Employee details">
          <font>
             <Font name="System Italic" size="12.0" />

@@ -105,7 +105,6 @@ public class RoleForm implements Initializable {
     
     @FXML
     void roleTableMouseAction(MouseEvent event) {
-    	
     	if (event.getClickCount() == 1) {
     		selectedRoleID = roleTable.getSelectionModel().getSelectedItem().getRoleID();
     		System.out.println("selectedRoleID=" + selectedRoleID);
@@ -114,11 +113,6 @@ public class RoleForm implements Initializable {
 
 	@Override
 	public void initialize(URL url, ResourceBundle rb) {
-		// TODO Auto-generated method stub
-		loadTable();
-		
-		
-		
 	}
 
 }

@@ -26,7 +26,6 @@ public class AddRoleForm implements Initializable {
     @FXML
     private ComboBox<String> comboRoleNo;
     
-    //private  roleNoList;
     private ObservableList<String> roleNoList;
 
     @FXML
@@ -107,7 +106,6 @@ public class AddRoleForm implements Initializable {
     		numsList.add(Integer.toString(i + 1));
     	}
     	roleNoList = FXCollections.observableArrayList(numsList);
-    	//System.out.println("roleNoList"+roleNoList);
     	comboRoleNo.setItems(roleNoList);
     }
 

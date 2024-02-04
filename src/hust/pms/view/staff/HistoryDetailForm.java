@@ -40,14 +40,11 @@ public class HistoryDetailForm implements Initializable {
     private void loadImageView() {
     	
     	try {
-    		//File in = new File(hc.getURLImage(HistoryForm.historyID)[0]);
-    		//iv_in.setImage(new Image(in.toURI().toString()));
     	} catch (NullPointerException npe) {
     		npe.printStackTrace();
     	}
     	try {
-    		//File out = new File(hc.getURLImage(HistoryForm.historyID)[1]);
-    		//iv_out.setImage(new Image(out.toURI().toString()));
+    		
     	} catch (NullPointerException npe) {
     		npe.printStackTrace();
     	}

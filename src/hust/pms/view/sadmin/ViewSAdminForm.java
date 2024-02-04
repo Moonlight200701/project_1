@@ -90,7 +90,7 @@ public class ViewSAdminForm implements Initializable {
 
 	@FXML
 	private void btAddStaffAction() {
-		//sceneRoute.toParallelScene(Navigator.FXML_ADDSTAFF);
+		
 	}
 
 	@FXML
@@ -122,20 +122,13 @@ public class ViewSAdminForm implements Initializable {
 
 	private void loadTable() {
 		
-		//statusColumn.setCellValueFactory(cellData -> cellData.getValue().get);
 		col_id.setCellValueFactory(new PropertyValueFactory<Employee, String>("employeeID"));
 		col_name.setCellValueFactory(new PropertyValueFactory<Employee, String>("name"));
 		col_gender.setCellValueFactory(new PropertyValueFactory<Employee, String>("gender"));
 		col_birthdate.setCellValueFactory(new PropertyValueFactory<Employee, String>("birthDate"));
 		col_phonenumber.setCellValueFactory(new PropertyValueFactory<Employee, String>("phoneNumber"));
 		col_email.setCellValueFactory(new PropertyValueFactory<Employee, String>("email"));
-		// col_gender.setCellValueFactory(new PropertyValueFactory<>("gender"));
-		// col_parking.setCellValueFactory(new PropertyValueFactory<>("parkingid"));
-		// col_parking.setCellValueFactory(new PropertyValueFactory<>("parkingid"));
-		// col_role.setCellValueFactory(new PropertyValueFactory<>("roleid"));
 		col_address.setCellValueFactory(new PropertyValueFactory<Employee, String>("address"));
-//		col_username.setCellValueFactory(new PropertyValueFactory<>("username"));
-//		col_password.setCellValueFactory(new PropertyValueFactory<>("password"));
 		
 		empList = FXCollections.observableArrayList(empController.getSAdminToLoadTable());
 		employeeTable.setItems(empList);
@@ -143,7 +136,6 @@ public class ViewSAdminForm implements Initializable {
 	
 	public void refreshTable() {
 		loadTable();
-		//empList.add(emp);
 	}
 
 	private void searchTableAndRefresh() {
@@ -171,37 +163,19 @@ public class ViewSAdminForm implements Initializable {
 				}
 			});
 		});
-			
-			// 3. Wrap the FilteredList in a SortedList. 
+
 			SortedList<Employee> sortedData = new SortedList<>(filteredData);
-			
-			// 4. Bind the SortedList comparator to the TableView comparator.
-			// 	  Otherwise, sorting the TableView would have no effect.
+
 			sortedData.comparatorProperty().bind(employeeTable.comparatorProperty());
-			
-			// 5. Add sorted (and filtered) data to the table.
+
 			employeeTable.setItems(sortedData);
 		
     }
 	
 	 @FXML
 	 private void empTableActionMouseClicked(MouseEvent event) {
-		 
-		 //TableRow<Employee> row = new TableRow<>();
 		 if (event.getClickCount() == 2) {
-			 //System.out.println("empID="+employeeTable.getSelectionModel().getSelectedItem().getEmployeeID());
-			 /*
-			 selectedEmployeeID = employeeTable.getSelectionModel().getSelectedItem().getEmployeeID();
-			 selectedEmail = employeeTable.getSelectionModel().getSelectedItem().getEmail();
-			 selectedPhoneNumber = employeeTable.getSelectionModel().getSelectedItem().getPhoneNumber();
-			 selectedUsername = employeeTable.getSelectionModel().getSelectedItem().getUserName();
-			 
-			 System.out.println("currentEmployeeID=" + selectedEmployeeID);
-			 sceneRoute.toParallelScene(Navigator.FXML_EMPLOYEE_DETAIL);
-			 //loadTable();
-			*/
 			 sceneRoute.toAlertWithTitleAndContent("Warning", "Access denied!");
-			  
 		 }
 	 }
 	 
@@ -221,21 +195,7 @@ public class ViewSAdminForm implements Initializable {
 	 @Override
 	 public void initialize(URL url, ResourceBundle rb) {
 		loadTable();
-		
-		//statusColumn.setCellValueFactory(null);
 		searchTableAndRefresh();
 		loadLabel();
-//		tfSearch.getScene().getAccelerators().put(new KeyCombination(KeyCode.C, KeyCombination.CONTROL_ANY), new Runnable() {
-//			
-//			@Override
-//			public void run() {
-//				// TODO Auto-generated method stub
-//				tfSearch.requestFocus();
-//				String text = tfSearch.getText();
-//				System.out.println(text);
-//			}
-//		});
-		
-		
 	}
 }

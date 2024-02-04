@@ -59,7 +59,6 @@ public class ChangeFeeForm implements LabelHelper, Initializable, TextFieldHelpe
 
 	@Override
 	public void clearLabel(Label label) {
-		// TODO Auto-generated method stub
 		
 	}
 	
@@ -119,7 +118,6 @@ public class ChangeFeeForm implements LabelHelper, Initializable, TextFieldHelpe
 
 	@Override
 	public void clearField(TextField textField) {
-		// TODO Auto-generated method stub
 		
 	}
 	

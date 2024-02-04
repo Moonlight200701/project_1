@@ -17,15 +17,6 @@ public class TimeHelper {
 		formattedDateTime = currentDateTime.format(formatter);
 		return formattedDateTime;
 	}
-	/*
-	public static String timeToStr(LocalDate time) {
-		String date = null;
-		time = LocalDate.parse("yyyy-MM-dd");
-		LocalDateTime ldt = time.atStartOfDay();
-		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd_HH'h'mm'm'ss's'");
-		date = ldt.format(formatter);
-		return date;
-	}*/
 	
 	public static String strToTime(String timeStr) {
 		String date = null;
@@ -59,9 +50,4 @@ public class TimeHelper {
 		}
 		return newTime;
 	}
-	
-	/*
-	public static void main(String[] args) {
-		System.out.println(addMonth(getCurrentTimeToStr(), 5));
-	}*/
 }

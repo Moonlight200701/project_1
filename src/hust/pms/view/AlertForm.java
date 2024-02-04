@@ -19,7 +19,6 @@ public class AlertForm {
         Alert alert = new Alert(AlertType.INFORMATION);
         alert.setTitle(title);
  
-        // alert.setHeaderText("Results:");
         alert.setContentText(contentText);
  
         alert.showAndWait();

@@ -56,7 +56,6 @@ public class ViewRevenue implements Initializable {
     	yAxis.setLabel("Revenue");
     	barChart = new BarChart(xAxis, yAxis);
     	barChart.setTitle("Revenue of Years");
-    	//ObservableList<XYChart.Data<Integer, Double>> data = ha
     	XYChart.Series<Integer, Double> series = new XYChart.Series<>();
     }
 
