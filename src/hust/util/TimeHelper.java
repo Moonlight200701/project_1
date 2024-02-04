@@ -26,7 +26,6 @@ public class TimeHelper {
 			SimpleDateFormat sdfOut = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss");
 			date = sdfOut.format(date1);
 		} catch (ParseException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		return date;
